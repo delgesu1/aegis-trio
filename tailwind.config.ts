@@ -29,11 +29,18 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				gold: 'hsl(var(--gold))',
+				'gold-rich': 'hsl(var(--gold-rich))',
 				'gold-muted': 'hsl(var(--gold-muted))',
 				burgundy: 'hsl(var(--burgundy))',
+				'burgundy-rich': 'hsl(var(--burgundy-rich))',
 				'burgundy-light': 'hsl(var(--burgundy-light))',
 				cream: 'hsl(var(--cream))',
+				'cream-warm': 'hsl(var(--cream-warm))',
 				charcoal: 'hsl(var(--charcoal))',
+				'charcoal-light': 'hsl(var(--charcoal-light))',
+				pearl: 'hsl(var(--pearl))',
+				bronze: 'hsl(var(--bronze))',
+				mahogany: 'hsl(var(--mahogany))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

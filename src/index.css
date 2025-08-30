@@ -2,46 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Aegis Trio - Sophisticated Classical Music Design System */
+/* Aegis Trio - Boutique Classical Music Design System */
 
 @layer base {
   :root {
-    /* Luxurious color palette inspired by classical concert halls */
-    --background: 15 8% 97%;  /* Warm ivory */
-    --foreground: 20 14% 4.1%;  /* Deep charcoal */
+    /* Sophisticated color palette with depth */
+    --background: 12 15% 97%;  /* Sophisticated ivory */
+    --foreground: 25 20% 8%;   /* Rich ebony */
     
-    /* Classical elegance colors */
-    --gold: 45 100% 62%;  /* Rich gold accent */
-    --gold-muted: 45 35% 75%;  /* Soft gold */
-    --burgundy: 0 45% 25%;  /* Deep burgundy */
-    --burgundy-light: 0 25% 45%;  /* Lighter burgundy */
-    --cream: 40 20% 96%;  /* Warm cream */
-    --charcoal: 20 14% 15%;  /* Elegant charcoal */
+    /* Luxurious accent colors */
+    --gold: 42 88% 58%;        /* Refined champagne gold */
+    --gold-rich: 38 95% 45%;   /* Deep antique gold */
+    --gold-muted: 45 45% 82%;  /* Soft champagne */
+    --burgundy: 355 65% 25%;   /* Deep wine */
+    --burgundy-rich: 350 75% 18%; /* Dark wine */
+    --burgundy-light: 355 45% 45%; /* Medium wine */
+    --cream: 35 25% 95%;       /* Rich cream */
+    --cream-warm: 38 30% 92%;  /* Warm cream */
+    --charcoal: 25 20% 12%;    /* Deep charcoal */
+    --charcoal-light: 25 15% 25%; /* Medium charcoal */
+    
+    /* Sophisticated neutrals */
+    --pearl: 45 20% 88%;       /* Pearl white */
+    --bronze: 30 35% 45%;      /* Antique bronze */
+    --mahogany: 15 45% 25%;    /* Rich mahogany */
 
-    --card: 40 20% 96%;
-    --card-foreground: 20 14% 4.1%;
+    --card: 35 25% 95%;
+    --card-foreground: 25 20% 8%;
 
-    --popover: 40 20% 96%;
-    --popover-foreground: 20 14% 4.1%;
+    --popover: 35 25% 95%;
+    --popover-foreground: 25 20% 8%;
 
-    --primary: 0 45% 25%;  /* Burgundy */
-    --primary-foreground: 40 20% 96%;
+    --primary: 355 65% 25%;    /* Deep wine */
+    --primary-foreground: 35 25% 95%;
 
-    --secondary: 45 35% 75%;  /* Soft gold */
-    --secondary-foreground: 20 14% 4.1%;
+    --secondary: 42 88% 58%;   /* Champagne gold */
+    --secondary-foreground: 25 20% 8%;
 
-    --muted: 40 15% 92%;
-    --muted-foreground: 20 8% 46%;
+    --muted: 35 20% 90%;
+    --muted-foreground: 25 12% 50%;
 
-    --accent: 45 100% 62%;  /* Rich gold */
-    --accent-foreground: 20 14% 4.1%;
+    --accent: 42 88% 58%;      /* Champagne gold */
+    --accent-foreground: 25 20% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 40 20% 96%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 35 25% 95%;
 
-    --border: 40 12% 88%;
-    --input: 40 12% 88%;
-    --ring: 45 100% 62%;
+    --border: 35 18% 85%;
+    --input: 35 18% 85%;
+    --ring: 42 88% 58%;
 
     --radius: 0.5rem;
 
@@ -108,15 +117,22 @@
 
   body {
     @apply bg-background text-foreground font-serif;
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--gold-muted)) 0%, transparent 25%),
+      radial-gradient(circle at 75% 75%, hsl(var(--cream-warm)) 0%, transparent 25%);
+    background-size: 100px 100px;
+    background-attachment: fixed;
   }
 
-  /* Elegant typography */
+  /* Boutique typography */
   .font-display {
     font-family: 'Playfair Display', serif;
+    font-feature-settings: "liga", "kern";
   }
   
   .font-serif {
     font-family: 'Crimson Text', serif;
+    font-feature-settings: "liga", "kern";
   }
 
   /* Smooth scrolling */
@@ -124,37 +140,19 @@
     scroll-behavior: smooth;
   }
 
-  /* Parallax container */
-  .parallax-container {
-    perspective: 1px;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-
-  .parallax-element {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  .parallax-back {
-    transform: translateZ(-1px) scale(2);
-  }
-
-  .parallax-base {
-    transform: translateZ(0);
+  /* Custom selection */
+  ::selection {
+    background: hsl(var(--gold-muted));
+    color: hsl(var(--charcoal));
   }
 }
 
 @layer components {
-  /* Elegant animations */
+  /* Sophisticated animations */
   .fade-in-up {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .fade-in-up.animate {
@@ -162,22 +160,56 @@
     transform: translateY(0);
   }
 
-  .elegant-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  .boutique-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
   }
 
-  .elegant-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  .boutique-hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+      hsl(var(--gold-rich) / 0.1) 0%, 
+      hsl(var(--burgundy-rich) / 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    border-radius: inherit;
   }
 
-  /* Gradient overlays */
-  .hero-gradient {
+  .boutique-hover:hover::before {
+    opacity: 1;
+  }
+
+  .boutique-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 25px 50px -12px hsl(var(--charcoal) / 0.15),
+      0 0 0 1px hsl(var(--gold-muted) / 0.2);
+  }
+
+  /* Luxury card styling */
+  .luxury-card {
+    background: linear-gradient(135deg, 
+      hsl(var(--cream)) 0%, 
+      hsl(var(--background)) 100%);
+    border: 1px solid hsl(var(--gold-muted) / 0.3);
+    box-shadow: 
+      0 10px 30px -5px hsl(var(--charcoal) / 0.1),
+      inset 0 1px 0 hsl(var(--gold-muted) / 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Sophisticated gradients */
+  .hero-overlay {
     background: linear-gradient(
       135deg,
-      rgba(139, 69, 19, 0.1) 0%,
-      rgba(184, 134, 11, 0.05) 50%,
-      rgba(0, 0, 0, 0.3) 100%
+      hsl(var(--charcoal) / 0.7) 0%,
+      hsl(var(--burgundy-rich) / 0.6) 25%,
+      hsl(var(--mahogany) / 0.5) 50%,
+      hsl(var(--bronze) / 0.4) 75%,
+      transparent 100%
     );
   }
 
@@ -185,10 +217,87 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      hsl(var(--accent)) 50%,
+      hsl(var(--gold-rich)) 20%,
+      hsl(var(--gold)) 50%,
+      hsl(var(--gold-rich)) 80%,
       transparent 100%
     );
-    height: 1px;
+    height: 2px;
     width: 100%;
+    position: relative;
+  }
+
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: hsl(var(--gold));
+    border-radius: 50%;
+    box-shadow: 0 0 10px hsl(var(--gold) / 0.5);
+  }
+
+  /* Glass morphism effect */
+  .glass-effect {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid hsl(var(--gold-muted) / 0.2);
+  }
+
+  /* Boutique image frames */
+  .image-frame {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-frame::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, 
+      hsl(var(--gold-rich)), 
+      hsl(var(--gold)), 
+      hsl(var(--gold-muted)),
+      hsl(var(--gold)),
+      hsl(var(--gold-rich)));
+    background-size: 400% 400%;
+    animation: shimmer 3s ease-in-out infinite;
+    z-index: -1;
+    border-radius: inherit;
+  }
+
+  .image-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+      transparent 0%,
+      hsl(var(--gold-rich) / 0.1) 50%,
+      transparent 100%);
+    pointer-events: none;
+  }
+
+  /* Premium shadows */
+  .luxury-shadow {
+    box-shadow: 
+      0 4px 6px -1px hsl(var(--charcoal) / 0.1),
+      0 2px 4px -1px hsl(var(--charcoal) / 0.06),
+      0 0 0 1px hsl(var(--gold-muted) / 0.1),
+      inset 0 1px 0 hsl(var(--background) / 0.7);
+  }
+
+  /* Elegant text styling */
+  .elegant-caps {
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 }

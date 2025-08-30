@@ -63,33 +63,56 @@ const MusiciansSection = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid lg:grid-cols-3 gap-16 max-w-6xl mx-auto">
           {musicians.map((musician, index) => (
             <div
               key={musician.name}
               ref={el => cardRefs.current[index] = el}
-              className={`text-center fade-in-up ${visibleCards.includes(index) ? 'animate' : ''}`}
+              className={`fade-in-up ${visibleCards.includes(index) ? 'animate' : ''}`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="group elegant-hover">
-                <div className="relative mb-8">
-                  <img
-                    src={musician.image}
-                    alt={musician.name}
-                    className="w-80 h-80 mx-auto object-cover rounded-full shadow-2xl"
-                  />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-t from-burgundy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="group boutique-hover luxury-card rounded-3xl p-8 text-center relative overflow-hidden">
+                {/* Decorative background pattern */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gold/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                
+                <div className="relative z-10">
+                  <div className="relative mb-10">
+                    {/* Portrait with elegant frame */}
+                    <div className="relative inline-block">
+                      <div className="image-frame rounded-2xl overflow-hidden w-64 h-80 mx-auto">
+                        <img
+                          src={musician.image}
+                          alt={musician.name}
+                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                        />
+                      </div>
+                      
+                      {/* Instrument badge */}
+                      <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+                        <div className="bg-burgundy-rich text-gold px-6 py-3 rounded-full shadow-xl">
+                          <p className="font-serif elegant-caps text-sm font-bold tracking-wider">
+                            {musician.instrument}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <h3 className="font-display text-4xl font-bold text-burgundy-rich">
+                      {musician.name}
+                    </h3>
+                    
+                    <div className="section-divider w-20 mx-auto"></div>
+                    
+                    <p className="font-serif text-charcoal-light leading-relaxed text-lg">
+                      {musician.bio}
+                    </p>
+                  </div>
                 </div>
                 
-                <h3 className="font-display text-3xl font-bold text-burgundy mb-2">
-                  {musician.name}
-                </h3>
-                <p className="font-serif text-gold text-xl mb-6 uppercase tracking-wider">
-                  {musician.instrument}
-                </p>
-                <p className="font-serif text-charcoal leading-relaxed">
-                  {musician.bio}
-                </p>
+                {/* Subtle corner accent */}
+                <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-gold/5 to-transparent rounded-tr-full"></div>
               </div>
             </div>
           ))}
