@@ -6,69 +6,62 @@
 
 @layer base {
   :root {
-    /* Sophisticated color palette with depth */
-    --background: 12 15% 97%;  /* Sophisticated ivory */
-    --foreground: 25 20% 8%;   /* Rich ebony */
+    /* Sophisticated Dark Mode - Luxury Classical Palette */
+    --background: 220 18% 6%;     /* Rich midnight */
+    --foreground: 45 25% 92%;     /* Warm pearl */
     
-    /* Luxurious accent colors */
-    --gold: 42 88% 58%;        /* Refined champagne gold */
-    --gold-rich: 38 95% 45%;   /* Deep antique gold */
-    --gold-muted: 45 45% 82%;  /* Soft champagne */
-    --burgundy: 355 65% 25%;   /* Deep wine */
-    --burgundy-rich: 350 75% 18%; /* Dark wine */
-    --burgundy-light: 355 45% 45%; /* Medium wine */
-    --cream: 35 25% 95%;       /* Rich cream */
-    --cream-warm: 38 30% 92%;  /* Warm cream */
-    --charcoal: 25 20% 12%;    /* Deep charcoal */
-    --charcoal-light: 25 15% 25%; /* Medium charcoal */
+    /* Luxurious accent colors - optimized for dark */
+    --gold: 42 88% 65%;           /* Luminous gold */
+    --gold-rich: 45 95% 72%;      /* Bright antique gold */
+    --gold-muted: 42 60% 55%;     /* Subdued gold */
+    --burgundy: 355 55% 42%;      /* Rich wine */
+    --burgundy-rich: 350 65% 48%; /* Vibrant wine */
+    --burgundy-light: 355 45% 58%; /* Light wine */
+    --cream: 45 25% 90%;          /* Soft cream */
+    --cream-warm: 42 30% 85%;     /* Warm cream */
+    --charcoal: 220 18% 6%;       /* Deep midnight */
+    --charcoal-light: 220 15% 12%; /* Medium charcoal */
     
     /* Sophisticated neutrals */
-    --pearl: 45 20% 88%;       /* Pearl white */
-    --bronze: 30 35% 45%;      /* Antique bronze */
-    --mahogany: 15 45% 25%;    /* Rich mahogany */
+    --pearl: 45 20% 85%;          /* Soft pearl */
+    --bronze: 35 45% 52%;         /* Warm bronze */
+    --mahogany: 15 55% 35%;       /* Rich mahogany */
 
-    --card: 35 25% 95%;
-    --card-foreground: 25 20% 8%;
+    --card: 220 15% 10%;
+    --card-foreground: 45 25% 90%;
 
-    --popover: 35 25% 95%;
-    --popover-foreground: 25 20% 8%;
+    --popover: 220 15% 10%;
+    --popover-foreground: 45 25% 90%;
 
-    --primary: 355 65% 25%;    /* Deep wine */
-    --primary-foreground: 35 25% 95%;
+    --primary: 42 88% 65%;        /* Luminous gold */
+    --primary-foreground: 220 18% 6%;
 
-    --secondary: 42 88% 58%;   /* Champagne gold */
-    --secondary-foreground: 25 20% 8%;
+    --secondary: 355 55% 42%;     /* Rich wine */
+    --secondary-foreground: 45 25% 90%;
 
-    --muted: 35 20% 90%;
-    --muted-foreground: 25 12% 50%;
+    --muted: 220 12% 15%;
+    --muted-foreground: 45 15% 65%;
 
-    --accent: 42 88% 58%;      /* Champagne gold */
-    --accent-foreground: 25 20% 8%;
+    --accent: 42 88% 65%;         /* Luminous gold */
+    --accent-foreground: 220 18% 6%;
 
-    --destructive: 0 70% 55%;
-    --destructive-foreground: 35 25% 95%;
+    --destructive: 0 75% 58%;
+    --destructive-foreground: 45 25% 92%;
 
-    --border: 35 18% 85%;
-    --input: 35 18% 85%;
-    --ring: 42 88% 58%;
+    --border: 220 12% 18%;
+    --input: 220 12% 15%;
+    --ring: 42 88% 65%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 220 18% 8%;
+    --sidebar-foreground: 45 20% 85%;
+    --sidebar-primary: 42 88% 65%;
+    --sidebar-primary-foreground: 220 18% 6%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 45 20% 85%;
+    --sidebar-border: 220 12% 18%;
+    --sidebar-ring: 42 88% 65%;
   }
 
   .dark {
@@ -118,9 +111,10 @@
   body {
     @apply bg-background text-foreground font-serif;
     background-image: 
-      radial-gradient(circle at 25% 25%, hsl(var(--gold-muted)) 0%, transparent 25%),
-      radial-gradient(circle at 75% 75%, hsl(var(--cream-warm)) 0%, transparent 25%);
-    background-size: 100px 100px;
+      radial-gradient(circle at 20% 30%, hsl(var(--gold-muted) / 0.1) 0%, transparent 25%),
+      radial-gradient(circle at 80% 70%, hsl(var(--burgundy-rich) / 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 50% 50%, hsl(var(--bronze) / 0.05) 0%, transparent 50%);
+    background-size: 120px 120px, 150px 150px, 200px 200px;
     background-attachment: fixed;
   }
 
@@ -185,20 +179,21 @@
   .boutique-hover:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 
-      0 25px 50px -12px hsl(var(--charcoal) / 0.15),
-      0 0 0 1px hsl(var(--gold-muted) / 0.2);
+      0 32px 64px -12px hsl(var(--background) / 0.6),
+      0 0 0 1px hsl(var(--gold-rich) / 0.3),
+      0 0 40px hsl(var(--gold) / 0.15);
   }
 
   /* Luxury card styling */
   .luxury-card {
     background: linear-gradient(135deg, 
-      hsl(var(--cream)) 0%, 
+      hsl(var(--card)) 0%, 
       hsl(var(--background)) 100%);
-    border: 1px solid hsl(var(--gold-muted) / 0.3);
+    border: 1px solid hsl(var(--gold-muted) / 0.2);
     box-shadow: 
-      0 10px 30px -5px hsl(var(--charcoal) / 0.1),
-      inset 0 1px 0 hsl(var(--gold-muted) / 0.2);
-    backdrop-filter: blur(10px);
+      0 20px 40px -10px hsl(var(--background) / 0.8),
+      inset 0 1px 0 hsl(var(--gold-muted) / 0.1);
+    backdrop-filter: blur(20px) saturate(120%);
   }
 
   /* Sophisticated gradients */
