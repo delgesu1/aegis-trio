@@ -65,24 +65,30 @@ const LatestSection = () => {
               className={`fade-in-up ${visibleEvents.includes(index) ? 'animate' : ''}`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="luxury-card bg-cream/95 backdrop-blur-sm rounded-2xl overflow-hidden boutique-hover relative">
-                {/* Premium card styling */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gold/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="boutique-event-card shimmer-border relative">
+                {/* Floating accent elements */}
+                <div className="floating-accent"></div>
+                <div className="floating-accent"></div>
+                <div className="floating-accent"></div>
                 
-                <div className="p-10 relative z-10">
-                  <div className="grid lg:grid-cols-12 gap-8 items-center">
+                {/* Premium card styling */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-gold/8 via-gold-muted/5 to-transparent rounded-full -translate-y-20 translate-x-20 opacity-60"></div>
+                
+                <div className="p-12 md:p-8 sm:p-6 relative z-10">
+                  <div className="grid lg:grid-cols-12 gap-8 md:gap-6 sm:gap-4 items-center">
                     {/* Date Display */}
                     <div className="lg:col-span-3 text-left">
-                      <div className="inline-flex flex-col items-start">
-                        <div className="bg-olive-dark rounded-2xl p-6 mb-4 shadow-xl">
-                          <div className="text-center">
-                            <p className="font-display text-4xl font-bold text-gold mb-1">
+                      <div className="inline-flex flex-col items-start w-auto">
+                        <div className="premium-date-display mb-4 shadow-2xl w-auto">
+                          <div className="text-center relative z-10">
+                            <p className="font-display text-5xl md:text-4xl sm:text-3xl font-bold text-gold mb-2 drop-shadow-sm">
                               {event.displayDate.split(',')[0].split(' ')[1]}
                             </p>
-                            <p className="font-serif text-gold-muted text-sm elegant-caps tracking-wider">
+                            <p className="font-serif text-gold-muted text-base md:text-sm elegant-caps tracking-widest mb-1">
                               {event.displayDate.split(',')[0].split(' ')[0]}
                             </p>
-                            <p className="font-serif text-cream text-xs mt-1">
+                            <div className="w-8 h-0.5 bg-gold-muted mx-auto mb-2 opacity-60"></div>
+                            <p className="font-serif text-cream text-sm font-light tracking-wide">
                               {event.displayDate.split(',')[1]}
                             </p>
                           </div>
@@ -92,34 +98,39 @@ const LatestSection = () => {
 
                     {/* Event Details */}
                     <div className="lg:col-span-6">
-                      <div className="mb-6">
-                        <div className="inline-flex items-center gap-2 mb-4">
-                          <div className="w-6 h-0.5 bg-olive-dark"></div>
-                          <span className="font-serif text-olive-dark elegant-caps text-xs tracking-widest">Concert</span>
-                          <div className="w-6 h-0.5 bg-olive-dark"></div>
+                      <div className="mb-8">
+                        <div className="inline-flex items-center gap-3 mb-6">
+                          <div className="w-8 h-0.5 bg-gradient-to-r from-transparent via-olive-dark to-transparent"></div>
+                          <span className="font-serif text-olive-dark elegant-caps text-sm tracking-[0.2em] font-semibold">Concert</span>
+                          <div className="w-8 h-0.5 bg-gradient-to-r from-transparent via-olive-dark to-transparent"></div>
                         </div>
-                        <h3 className="font-display text-3xl lg:text-4xl font-bold text-olive-dark mb-4 leading-tight">
+                        <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-olive-dark mb-6 leading-[0.9] tracking-tight">
                           {event.program}
                         </h3>
-                        <p className="font-serif text-charcoal-light text-lg mb-6 leading-relaxed">
+                        <p className="font-serif text-charcoal-light text-lg md:text-xl mb-8 leading-relaxed font-light tracking-wide">
                           {event.description}
                         </p>
                       </div>
                       
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
-                            <MapPin className="w-4 h-4 text-charcoal" />
+                      <div className="space-y-5">
+                        <div className="flex items-center gap-4 group">
+                          <div className="w-10 h-10 bg-gradient-to-br from-gold to-gold-rich rounded-full flex items-center justify-center shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:shadow-xl">
+                            <MapPin className="w-5 h-5 text-charcoal drop-shadow-sm" />
                           </div>
-                          <span className="font-serif text-charcoal text-lg">
-                            <strong>{event.venue}</strong>, {event.location}
-                          </span>
+                          <div className="flex flex-col">
+                            <span className="font-display text-xl font-bold text-charcoal tracking-tight">
+                              {event.venue}
+                            </span>
+                            <span className="font-serif text-charcoal-light text-base tracking-wide">
+                              {event.location}
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
-                            <Clock className="w-4 h-4 text-charcoal" />
+                        <div className="flex items-center gap-4 group">
+                          <div className="w-10 h-10 bg-gradient-to-br from-gold to-gold-rich rounded-full flex items-center justify-center shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:shadow-xl">
+                            <Clock className="w-5 h-5 text-charcoal drop-shadow-sm" />
                           </div>
-                          <span className="font-serif text-charcoal text-lg">
+                          <span className="font-serif text-charcoal text-xl font-semibold tracking-wide">
                             {event.time}
                           </span>
                         </div>
@@ -127,24 +138,27 @@ const LatestSection = () => {
                     </div>
 
                     {/* Booking Section */}
-                    <div className="lg:col-span-3 text-center">
+                    <div className="lg:col-span-3 text-left lg:text-center">
                       <Button 
-                        className="bg-gradient-to-r from-olive-dark to-olive-medium hover:from-olive-medium hover:to-olive-dark text-gold font-serif text-lg px-8 py-4 boutique-hover shadow-xl w-full transition-all duration-500 ease-out"
+                        className="premium-button text-gold font-serif text-lg px-10 py-5 w-auto lg:w-full rounded-2xl font-semibold tracking-wider"
                         onClick={() => window.open(event.ticketsUrl, '_blank')}
                       >
-                        <ExternalLink className="w-5 h-5 mr-2" />
+                        <ExternalLink className="w-5 h-5 mr-3 drop-shadow-sm" />
                         Reserve Seats
                       </Button>
                       
-                      <p className="font-serif text-charcoal/60 text-sm mt-3 italic">
-                        Limited availability
-                      </p>
+                      <div className="mt-6 space-y-2">
+                        <p className="font-serif text-charcoal/70 text-sm italic tracking-wide">
+                          Limited availability
+                        </p>
+                        <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-gold-muted to-transparent mx-auto opacity-50"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
                 
                 {/* Elegant corner decoration */}
-                <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-olive-dark/5 to-transparent rounded-tr-2xl"></div>
+                <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-gold-muted/6 to-transparent rounded-br-2xl"></div>
               </div>
             </div>
           ))}
