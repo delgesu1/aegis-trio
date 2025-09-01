@@ -13,7 +13,7 @@ const videos = [
   }
 ];
 
-const VideosSection = () => {
+const LiveSection = () => {
   const [visibleVideos, setVisibleVideos] = useState<number[]>([]);
   const videoRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -40,7 +40,7 @@ const VideosSection = () => {
   }, []);
 
   return (
-    <section id="videos" className="py-32 bg-gradient-to-br from-olive-dark via-olive-medium to-olive-dark text-cream relative overflow-hidden">
+    <section id="live" className="py-32 bg-gradient-to-br from-olive-dark via-olive-medium to-olive-dark text-cream relative overflow-hidden">
       {/* Elegant background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/3 left-1/6 w-80 h-80 bg-gradient-to-br from-gold/15 to-transparent rounded-full blur-3xl"></div>
@@ -99,4 +99,4 @@ const VideosSection = () => {
   );
 };
 
-export default VideosSection;
+export default LiveSection;

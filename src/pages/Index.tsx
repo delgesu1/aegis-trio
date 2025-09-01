@@ -1,10 +1,9 @@
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
+import TrioSection from '@/components/TrioSection';
+import LatestSection from '@/components/LatestSection';
+import LiveSection from '@/components/LiveSection';
 import AboutSection from '@/components/AboutSection';
-import NewsSection from '@/components/NewsSection';
-import MusiciansSection from '@/components/MusiciansSection';
-import VideosSection from '@/components/VideosSection';
-import AgendaSection from '@/components/AgendaSection';
 import ContactSection from '@/components/ContactSection';
 
 const Index = () => {
@@ -13,11 +12,10 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
+        <TrioSection />
+        <LatestSection />
+        <LiveSection />
         <AboutSection />
-        <NewsSection />
-        <AgendaSection />
-        <VideosSection />
-        <MusiciansSection />
         <ContactSection />
       </main>
     </div>

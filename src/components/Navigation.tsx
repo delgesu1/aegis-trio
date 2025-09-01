@@ -5,19 +5,19 @@ import flowerImage from '../assets/Flower58.png';
 const navigationItems = [
   { 
     label: 'Trio', 
-    href: '#about'
+    href: '#trio'
   },
   { 
     label: 'Latest', 
-    href: '#news'
+    href: '#latest'
   },
   { 
     label: 'Live', 
-    href: '#agenda'
+    href: '#live'
   },
   { 
     label: 'About', 
-    href: '#musicians'
+    href: '#about'
   },
   { 
     label: 'Contact', 
@@ -31,7 +31,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -73,9 +73,9 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
       isScrolled 
-        ? 'glass-effect shadow-2xl border-b border-gold/20' 
+        ? 'glass-effect shadow-2xl' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6">

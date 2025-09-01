@@ -15,7 +15,7 @@ const upcomingEvents = [
   }
 ];
 
-const AgendaSection = () => {
+const LatestSection = () => {
   const [visibleEvents, setVisibleEvents] = useState<number[]>([]);
   const eventRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -42,7 +42,7 @@ const AgendaSection = () => {
   }, []);
 
   return (
-    <section id="agenda" className="py-32 bg-gradient-to-br from-background via-cream-warm to-cream relative overflow-hidden">
+    <section id="latest" className="py-32 bg-gradient-to-br from-background via-cream-warm to-cream relative overflow-hidden">
       {/* Sophisticated background elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 right-20 w-80 h-80 bg-gradient-to-br from-olive-dark/10 to-transparent rounded-full blur-3xl"></div>
@@ -154,4 +154,4 @@ const AgendaSection = () => {
   );
 };
 
-export default AgendaSection;
+export default LatestSection;
