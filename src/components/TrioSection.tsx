@@ -45,6 +45,7 @@ const TrioSection = () => {
                   src={trioPortrait} 
                   alt="Aegis Trio" 
                   className="w-full h-[400px] lg:h-[600px] object-cover transition-transform duration-700 hover:scale-105"
+                  style={{ objectPosition: '40% center' }}
                 />
               </div>
               
