@@ -58,7 +58,7 @@ const AboutSection = () => {
       {/* Background overlay */}
       <div className="absolute inset-0" style={{ backgroundColor: 'hsl(0 0% 12% / 0.2)' }}></div>
       
-      <div className="container mx-auto px-8 relative">
+      <div className="container mx-auto px-4 md:px-8 relative max-w-full overflow-hidden">
         {/* Section header */}
         <div className="max-w-4xl mb-20 fade-up">
           <h2 className="section-title mb-8">

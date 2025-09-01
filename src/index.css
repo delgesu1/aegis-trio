@@ -388,7 +388,18 @@
   .portrait-grid {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Mobile-specific portrait grid adjustments */
+  @media (max-width: 768px) {
+    .portrait-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
   }
 
   .portrait-card {
@@ -398,6 +409,8 @@
     border-radius: var(--radius);
     cursor: pointer;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+    max-width: 100%;
   }
 
   .portrait-card:hover {
