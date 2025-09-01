@@ -498,22 +498,19 @@
 
   .accent-glow {
     color: hsl(var(--gold));
-    /* High-quality layered glow effect for smooth rendering */
-    text-shadow: 
-      0 0 10px hsl(var(--gold) / 0.8),
-      0 0 20px hsl(var(--gold) / 0.6),
-      0 0 40px hsl(var(--gold) / 0.4),
-      0 0 80px hsl(var(--gold) / 0.3),
-      0 0 120px hsl(var(--gold) / 0.2),
-      0 0 160px hsl(var(--gold) / 0.1);
+    /* Subtle glow with improved rendering quality */
+    text-shadow: 0 0 80px hsl(var(--gold) / 0.4);
     /* Ensure glow has enough space and doesn't get clipped */
     padding: 40px 0;
     margin: -20px 0;
     overflow: visible;
-    /* Improve rendering quality */
+    /* Improve rendering quality to eliminate pixelation */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    /* Force hardware acceleration for smoother shadows */
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   /* Fade up animation */
