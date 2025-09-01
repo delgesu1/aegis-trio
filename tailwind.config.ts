@@ -41,6 +41,8 @@ export default {
 				pearl: 'hsl(var(--pearl))',
 				bronze: 'hsl(var(--bronze))',
 				mahogany: 'hsl(var(--mahogany))',
+				'olive-dark': 'hsl(var(--olive-dark))',
+				'olive-medium': 'hsl(var(--olive-medium))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

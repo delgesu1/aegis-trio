@@ -15,64 +15,48 @@ const HeroSection = () => {
     <section className="relative h-screen overflow-hidden">
       {/* Parallax Background */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
+        className="absolute inset-0 bg-cover bg-no-repeat scale-110"
         style={{
           backgroundImage: `url(${heroImage})`,
+          backgroundPosition: '40% 20%',
           transform: `translateY(${scrollY * 0.3}px) scale(1.1)`,
-          filter: 'brightness(0.8) contrast(1.1)',
+          filter: 'brightness(0.95) contrast(1.1)',
         }}
       />
       
-      {/* Layered Overlays */}
+      {/* Subtle Overlay */}
       <div className="absolute inset-0 hero-overlay" />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent" />
       
-      {/* Decorative Elements */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-burgundy/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      {/* Top Dark Fade Overlay */}
+      <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-yellow-950/65 via-yellow-950/35 to-transparent" style={{ height: '15%' }} />
       
-      {/* Content */}
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <div className="text-center text-white max-w-5xl mx-auto px-6">
-          {/* Decorative top element */}
-          <div className="mb-8 animate-fade-in">
-            <div className="w-24 h-0.5 bg-gold mx-auto mb-4"></div>
-            <p className="font-serif text-gold elegant-caps text-sm tracking-widest">
-              Est. Chamber Music Excellence
-            </p>
-          </div>
-          
-          <h1 className="font-display text-7xl md:text-9xl lg:text-[12rem] font-bold mb-8 animate-fade-in leading-none" style={{ animationDelay: '0.2s' }}>
+      {/* Bottom Dark Fade Overlay */}
+      <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-yellow-950/90 via-yellow-950/50 to-transparent" />
+      
+      {/* Aegis Trio - Responsive positioning */}
+      <div className="hero-aegis absolute z-10 text-white">
+        <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="font-display text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] font-bold">
             <span className="inline-block relative">
               Aegis
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-gold-rich via-gold to-gold-muted"></span>
             </span>
-            <br />
-            <span className="text-6xl md:text-8xl lg:text-9xl text-gold-muted font-light italic">Trio</span>
-          </h1>
-          
-          <p className="font-serif text-2xl md:text-3xl lg:text-4xl mb-12 opacity-90 animate-fade-in max-w-3xl mx-auto leading-relaxed" style={{ animationDelay: '0.4s' }}>
-            Where Classical Tradition Meets 
-            <em className="text-gold-muted"> Artistic Innovation</em>
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-gold-rich to-gold hover:from-gold hover:to-gold-muted text-charcoal font-serif text-lg px-10 py-5 boutique-hover shadow-2xl border border-gold/20"
-              onClick={() => document.getElementById('videos')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Experience Performances
-            </Button>
-            <Button 
-              size="lg" 
-              className="glass-effect border-gold/30 text-white hover:bg-gold/10 font-serif text-lg px-10 py-5 boutique-hover shadow-2xl"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Private Bookings
-            </Button>
+          </div>
+          <div className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-gold-muted font-light italic mt-2 md:mt-3 lg:mt-2">
+            Trio
           </div>
         </div>
+      </div>
+
+      {/* Quote - Responsive positioning */}
+      <div className="hero-quote absolute z-10 text-white">
+        <p className="font-serif text-base sm:text-lg md:text-xl lg:text-2xl text-white opacity-90 animate-fade-in leading-relaxed" style={{ animationDelay: '0.6s' }}>
+          "They play with extraordinary fervor, commitment, and technical prowess"
+          <span className="block text-gold-muted text-sm sm:text-base md:text-lg lg:text-xl mt-2 font-light">
+            — ClassicsToday 2023
+          </span>
+        </p>
       </div>
       
       {/* Scroll Indicator */}

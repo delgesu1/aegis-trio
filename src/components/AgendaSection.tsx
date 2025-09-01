@@ -4,33 +4,13 @@ import { Button } from '@/components/ui/button';
 
 const upcomingEvents = [
   {
-    date: "2025-01-15",
-    displayDate: "January 15, 2025",
-    time: "7:30 PM",
-    venue: "Lincoln Center",
-    location: "New York, NY",
-    program: "Brahms & Mendelssohn Evening",
-    description: "An intimate evening featuring piano trios by Brahms and Mendelssohn",
-    ticketsUrl: "#"
-  },
-  {
-    date: "2025-02-08", 
-    displayDate: "February 8, 2025",
-    time: "8:00 PM",
-    venue: "Kennedy Center",
-    location: "Washington, DC", 
-    program: "Dvorak & Rachmaninoff",
-    description: "Romantic masterworks showcasing the trio's dynamic range",
-    ticketsUrl: "#"
-  },
-  {
-    date: "2025-03-22",
-    displayDate: "March 22, 2025", 
-    time: "7:00 PM",
-    venue: "Symphony Hall",
-    location: "Boston, MA",
-    program: "Contemporary Voices",
-    description: "A program featuring contemporary composers alongside classical favorites",
+    date: "2025-10-19",
+    displayDate: "October 19, 2025",
+    time: "2:30 PM",
+    venue: "Amherst College",
+    location: "Amherst, MA",
+    program: "Rachmaninoff Trio élégiaque No. 2",
+    description: "Memorial Concert at Amherst College",
     ticketsUrl: "#"
   }
 ];
@@ -62,26 +42,19 @@ const AgendaSection = () => {
   }, []);
 
   return (
-    <section id="agenda" className="py-32 bg-gradient-to-b from-charcoal-light via-charcoal to-burgundy-rich text-cream relative overflow-hidden">
-      {/* Elegant background elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-gold/20 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-burgundy/15 to-transparent rounded-full blur-3xl"></div>
+    <section id="agenda" className="py-32 bg-gradient-to-br from-background via-cream-warm to-cream relative overflow-hidden">
+      {/* Sophisticated background elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-10 right-20 w-80 h-80 bg-gradient-to-br from-olive-dark/10 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-20 w-64 h-64 bg-gradient-to-br from-gold/15 to-transparent rounded-full blur-3xl"></div>
       </div>
       
       <div className="max-w-6xl mx-auto px-6 relative">
         <div className="text-center mb-20">
-          <div className="mb-8">
-            <span className="font-serif text-gold-muted elegant-caps text-sm tracking-widest">Upcoming</span>
-          </div>
-          <h2 className="font-display text-6xl lg:text-8xl font-bold text-gold-rich mb-8">
-            Concert
-            <span className="block text-cream font-light italic">Calendar</span>
+          <h2 className="font-display text-6xl lg:text-8xl font-bold text-olive-dark mb-8 italic">
+            Latest
           </h2>
           <div className="section-divider max-w-40 mx-auto mb-8"></div>
-          <p className="font-serif text-2xl max-w-4xl mx-auto text-cream/90 leading-relaxed">
-            Join us at these extraordinary venues for unforgettable musical experiences
-          </p>
         </div>
 
         <div className="space-y-12">
@@ -99,9 +72,9 @@ const AgendaSection = () => {
                 <div className="p-10 relative z-10">
                   <div className="grid lg:grid-cols-12 gap-8 items-center">
                     {/* Date Display */}
-                    <div className="lg:col-span-3 text-center lg:text-left">
-                      <div className="inline-flex flex-col items-center lg:items-start">
-                        <div className="bg-burgundy-rich rounded-2xl p-6 mb-4 shadow-xl">
+                    <div className="lg:col-span-3 text-left">
+                      <div className="inline-flex flex-col items-start">
+                        <div className="bg-olive-dark rounded-2xl p-6 mb-4 shadow-xl">
                           <div className="text-center">
                             <p className="font-display text-4xl font-bold text-gold mb-1">
                               {event.displayDate.split(',')[0].split(' ')[1]}
@@ -121,11 +94,11 @@ const AgendaSection = () => {
                     <div className="lg:col-span-6">
                       <div className="mb-6">
                         <div className="inline-flex items-center gap-2 mb-4">
-                          <div className="w-6 h-0.5 bg-burgundy-rich"></div>
-                          <span className="font-serif text-burgundy-rich elegant-caps text-xs tracking-widest">Concert</span>
-                          <div className="w-6 h-0.5 bg-burgundy-rich"></div>
+                          <div className="w-6 h-0.5 bg-olive-dark"></div>
+                          <span className="font-serif text-olive-dark elegant-caps text-xs tracking-widest">Concert</span>
+                          <div className="w-6 h-0.5 bg-olive-dark"></div>
                         </div>
-                        <h3 className="font-display text-3xl lg:text-4xl font-bold text-burgundy-rich mb-4 leading-tight">
+                        <h3 className="font-display text-3xl lg:text-4xl font-bold text-olive-dark mb-4 leading-tight">
                           {event.program}
                         </h3>
                         <p className="font-serif text-charcoal-light text-lg mb-6 leading-relaxed">
@@ -156,7 +129,7 @@ const AgendaSection = () => {
                     {/* Booking Section */}
                     <div className="lg:col-span-3 text-center">
                       <Button 
-                        className="bg-gradient-to-r from-burgundy-rich to-burgundy hover:from-burgundy hover:to-burgundy-light text-gold font-serif text-lg px-8 py-4 boutique-hover shadow-xl w-full"
+                        className="bg-gradient-to-r from-olive-dark to-olive-medium hover:from-olive-medium hover:to-olive-dark text-gold font-serif text-lg px-8 py-4 boutique-hover shadow-xl w-full transition-all duration-500 ease-out"
                         onClick={() => window.open(event.ticketsUrl, '_blank')}
                       >
                         <ExternalLink className="w-5 h-5 mr-2" />
@@ -171,7 +144,7 @@ const AgendaSection = () => {
                 </div>
                 
                 {/* Elegant corner decoration */}
-                <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-burgundy/5 to-transparent rounded-tr-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-olive-dark/5 to-transparent rounded-tr-2xl"></div>
               </div>
             </div>
           ))}

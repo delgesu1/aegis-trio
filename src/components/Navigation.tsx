@@ -1,14 +1,28 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { X } from 'lucide-react';
+import flowerImage from '../assets/Flower58.png';
 
 const navigationItems = [
-  { label: 'About', href: '#about' },
-  { label: 'Musicians', href: '#musicians' },
-  { label: 'Performances', href: '#videos' },
-  { label: 'News', href: '#news' },
-  { label: 'Concerts', href: '#agenda' },
-  { label: 'Press', href: '#press' },
-  { label: 'Contact', href: '#contact' },
+  { 
+    label: 'Trio', 
+    href: '#about'
+  },
+  { 
+    label: 'Latest', 
+    href: '#news'
+  },
+  { 
+    label: 'Live', 
+    href: '#agenda'
+  },
+  { 
+    label: 'About', 
+    href: '#musicians'
+  },
+  { 
+    label: 'Contact', 
+    href: '#contact'
+  },
 ];
 
 const Navigation = () => {
@@ -24,12 +38,38 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle body scroll lock when menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Calculate offset for fixed navigation
+      const navHeight = 80; // Height of fixed navigation
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
       setIsMobileMenuOpen(false);
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -43,7 +83,9 @@ const Navigation = () => {
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="font-display text-2xl lg:text-3xl font-bold text-burgundy-rich hover:text-gold transition-all duration-300 relative"
+            className={`font-display text-2xl lg:text-3xl font-bold hover:text-gold transition-all duration-300 relative ${
+              isScrolled ? 'text-burgundy-rich' : 'text-white'
+            }`}
           >
             <span className="relative z-10">Aegis Trio</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 hover:w-full"></span>
@@ -55,7 +97,11 @@ const Navigation = () => {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="font-serif text-charcoal hover:text-burgundy-rich transition-all duration-300 relative group px-2 py-1"
+                className={`font-display text-lg font-semibold transition-all duration-300 relative group px-3 py-2 ${
+                  isScrolled 
+                    ? 'text-charcoal hover:text-burgundy-rich' 
+                    : 'text-white hover:text-gold'
+                }`}
               >
                 <span className="relative z-10">{item.label}</span>
                 <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-gold-rich to-gold transition-all duration-300 group-hover:w-full"></span>
@@ -66,30 +112,104 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-charcoal hover:text-burgundy transition-colors"
+            onClick={toggleMobileMenu}
+            className={`lg:hidden p-2 transition-all duration-300 ${
+              isScrolled 
+                ? 'text-charcoal hover:text-burgundy' 
+                : 'text-white hover:text-gold'
+            }`}
+            aria-label="Toggle mobile menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <div className={`hamburger-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+              <div className="hamburger-line"></div>
+              <div className="hamburger-line"></div>
+              <div className="hamburger-line"></div>
+            </div>
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 glass-effect border-b border-gold/20 shadow-2xl">
-            <div className="px-6 py-6 space-y-4">
-              {navigationItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left font-serif text-charcoal hover:text-burgundy-rich transition-all duration-300 py-3 px-4 rounded-lg hover:bg-gold/10 relative group"
-                >
-                  <span className="relative z-10">{item.label}</span>
-                  <span className="absolute left-0 top-1/2 transform -translate-y-1/2 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-4"></span>
-                </button>
-              ))}
+        {/* Luxury Mobile Menu Overlay */}
+        <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+          {/* Close Button */}
+          <button 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="mobile-menu-close menu-item-stagger"
+            style={{ transitionDelay: '0.05s' }}
+            aria-label="Close menu"
+          >
+            <X />
+          </button>
+
+          <div className="mobile-menu-content">
+            {/* Flower Background */}
+            <img 
+              src={flowerImage} 
+              alt="Decorative flower branch" 
+              className="absolute bottom-0 right-2 object-contain opacity-60 z-1 pointer-events-none"
+              style={{
+                height: '50vh',
+                width: 'auto',
+                objectPosition: 'right bottom'
+              }}
+            />
+            
+            {/* Floating Particles */}
+            <div className="floating-particle" style={{ top: '15%', zIndex: 10 }}></div>
+            <div className="floating-particle" style={{ top: '35%', zIndex: 10 }}></div>
+            <div className="floating-particle" style={{ top: '65%', zIndex: 10 }}></div>
+            <div className="floating-particle" style={{ top: '85%', zIndex: 10 }}></div>
+            
+            {/* Menu Content Container */}
+            <div className="relative z-10 w-full h-full flex flex-col justify-center items-center">
+              {/* Menu Header */}
+              <div className="menu-item-stagger mb-12" style={{ transitionDelay: '0.1s' }}>
+                <div className="mobile-menu-logo">Aegis Trio</div>
+              </div>
+
+              {/* Navigation Items */}
+              <div className="space-y-2 mb-12">
+                {navigationItems.map((item, index) => (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.href)}
+                    className={`luxury-menu-item menu-item-stagger w-auto text-center block mx-auto`}
+                    style={{ 
+                      transitionDelay: `${0.15 + (index) * 0.05}s`,
+                      padding: '1.5rem 2rem',
+                      border: 'none',
+                      borderRadius: '0.75rem',
+                      minWidth: '280px'
+                    }}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Decorative Divider */}
+              <div className="menu-divider menu-item-stagger mx-auto max-w-xs" style={{ transitionDelay: '0.4s' }}></div>
+
+              {/* Footer Section */}
+              <div className="menu-item-stagger mt-8" style={{ transitionDelay: '0.45s' }}>
+                <div className="text-center max-w-md mx-auto">
+                  <p className="font-serif text-charcoal-light text-sm italic mb-4">
+                    "Music is the universal language of mankind"
+                  </p>
+                  <p className="font-serif text-xs text-charcoal opacity-60">
+                    Follow our musical journey
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        )}
+
+          {/* Close overlay when clicking backdrop */}
+          <div 
+            className="absolute inset-0 cursor-pointer"
+            onClick={() => setIsMobileMenuOpen(false)}
+            style={{ zIndex: -1 }}
+          ></div>
+        </div>
       </div>
     </nav>
   );

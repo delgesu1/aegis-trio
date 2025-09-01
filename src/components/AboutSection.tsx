@@ -52,11 +52,6 @@ const AboutSection = () => {
               <div className="absolute -top-8 -left-8 w-24 h-24 border-2 border-gold-rich rounded-full opacity-60"></div>
               <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-gradient-to-br from-burgundy/20 to-gold/20 rounded-lg rotate-12 blur-sm"></div>
               
-              {/* Floating accent */}
-              <div className="absolute top-1/4 -right-6 bg-luxury-card rounded-xl p-6 shadow-2xl max-w-48">
-                <p className="font-display text-burgundy text-lg font-bold mb-2">Since 2018</p>
-                <p className="font-serif text-charcoal text-sm">50+ Prestigious Venues</p>
-              </div>
             </div>
           </div>
           
@@ -65,10 +60,6 @@ const AboutSection = () => {
             <div className="lg:pl-8">
               {/* Decorative header */}
               <div className="mb-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="section-divider w-16"></div>
-                  <span className="font-serif text-gold elegant-caps text-sm tracking-widest">Our Story</span>
-                </div>
                 <h2 className="font-display text-5xl lg:text-7xl font-bold text-burgundy-rich leading-tight">
                   Crafting
                   <span className="block text-gold-rich italic font-light">Musical</span>
