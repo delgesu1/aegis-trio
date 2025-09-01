@@ -498,10 +498,10 @@
 
   .accent-glow {
     color: hsl(var(--gold));
-    /* Subtle enhanced glow with reduced outer reach */
+    /* Compact glow with much smaller reach */
     text-shadow: 
-      0 0 60px hsl(var(--gold) / 0.4),
-      0 0 85px hsl(var(--gold) / 0.15);
+      0 0 35px hsl(var(--gold) / 0.4),
+      0 0 50px hsl(var(--gold) / 0.15);
     /* Ensure glow has enough space and doesn't get clipped */
     padding: 40px 0;
     margin: -20px 0;
