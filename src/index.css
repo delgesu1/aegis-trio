@@ -849,15 +849,18 @@
     right: 0;
     bottom: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
     background: hsl(var(--background) / 0.85);
     backdrop-filter: blur(40px) saturate(180%);
     -webkit-backdrop-filter: blur(40px) saturate(180%);
-    z-index: 100;
+    z-index: 9999;
     opacity: 0;
     visibility: hidden;
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
-    overscroll-behavior: contain;
+    overscroll-behavior: none;
+    touch-action: none;
   }
 
   .mobile-menu-overlay.open {
@@ -866,12 +869,12 @@
   }
 
   .mobile-menu-content {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background: linear-gradient(135deg, 
       hsl(var(--background) / 0.75) 0%, 
@@ -880,17 +883,19 @@
       hsl(var(--pearl) / 0.70) 100%);
     backdrop-filter: blur(25px) saturate(120%);
     -webkit-backdrop-filter: blur(25px) saturate(120%);
-    border: 1px solid hsl(var(--background) / 0.2);
+    border: none;
     transform: scale(0.95) translateY(20px);
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
-    overscroll-behavior: contain;
+    overscroll-behavior: none;
+    touch-action: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 2rem;
   }
 
 

@@ -42,12 +42,24 @@ const Navigation = () => {
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.height = '100%';
+      document.documentElement.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.height = '';
+      document.documentElement.style.overflow = '';
     }
 
     return () => {
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.height = '';
+      document.documentElement.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
 
@@ -203,12 +215,6 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Close overlay when clicking backdrop */}
-          <div 
-            className="absolute inset-0 cursor-pointer"
-            onClick={() => setIsMobileMenuOpen(false)}
-            style={{ zIndex: -1 }}
-          ></div>
         </div>
       </div>
     </nav>
