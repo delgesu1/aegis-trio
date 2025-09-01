@@ -500,8 +500,8 @@
     color: hsl(var(--gold));
     /* Compact glow that fades out sooner */
     text-shadow: 
-      0 0 35px hsl(var(--gold) / 0.4),
-      0 0 50px hsl(var(--gold) / 0.08);
+      0 0 35px hsl(var(--gold) / 0.3),
+      0 0 50px hsl(var(--gold) / 0.06);
     /* Ensure glow has enough space and doesn't get clipped */
     padding: 40px 0;
     margin: -20px 0;
@@ -513,6 +513,15 @@
     /* Force hardware acceleration for smoother shadows */
     will-change: transform;
     transform: translateZ(0);
+  }
+
+  /* Mobile-specific glow reduction */
+  @media (max-width: 768px) {
+    .accent-glow {
+      text-shadow: 
+        0 0 35px hsl(var(--gold) / 0.24),
+        0 0 50px hsl(var(--gold) / 0.048);
+    }
   }
 
   /* Fade up animation */
