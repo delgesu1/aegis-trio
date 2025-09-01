@@ -172,14 +172,14 @@ const Navigation = () => {
             <div className="floating-particle" style={{ top: '85%', zIndex: 10 }}></div>
             
             {/* Menu Content Container */}
-            <div className="relative z-10 w-full h-full flex flex-col justify-center items-center">
+            <div className="relative z-10 w-full flex flex-col items-center">
               {/* Menu Header */}
-              <div className="menu-item-stagger mb-12" style={{ transitionDelay: '0.1s' }}>
+              <div className="menu-item-stagger mb-8" style={{ transitionDelay: '0.1s' }}>
                 <div className="mobile-menu-logo">Aegis Trio</div>
               </div>
 
               {/* Navigation Items */}
-              <div className="space-y-2 mb-12">
+              <div className="space-y-2 mb-8">
                 {navigationItems.map((item, index) => (
                   <button
                     key={item.label}

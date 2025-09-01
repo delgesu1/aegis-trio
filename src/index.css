@@ -887,15 +887,17 @@
     transform: scale(0.95) translateY(20px);
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    overflow: hidden;
+    overflow-y: auto;
     overscroll-behavior: none;
-    touch-action: none;
+    touch-action: pan-y;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
-    padding: 2rem;
+    padding: 6rem 2rem 3rem;
+    box-sizing: border-box;
+    min-height: 100vh;
   }
 
 
@@ -1072,12 +1074,14 @@
 
   .mobile-menu-logo {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-weight: 700;
     color: hsl(40 60% 55%);
     text-shadow: 0 0 30px hsl(var(--gold-muted) / 0.2);
     margin-bottom: 0.5rem;
     letter-spacing: -0.03em;
+    line-height: 1.2;
+    text-align: center;
   }
 
   .mobile-menu-tagline {
@@ -1092,7 +1096,7 @@
 
   /* Close Button Styling */
   .mobile-menu-close {
-    position: fixed;
+    position: absolute;
     top: 2rem;
     right: 2rem;
     width: 48px;
@@ -1106,7 +1110,7 @@
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     backdrop-filter: blur(10px);
-    z-index: 101;
+    z-index: 10001;
     box-shadow: 0 4px 20px hsl(var(--charcoal) / 0.1);
   }
 
@@ -1126,5 +1130,52 @@
 
   .mobile-menu-close:hover svg {
     color: hsl(var(--burgundy-rich));
+  }
+
+  /* Mobile menu responsive adjustments */
+  @media (max-height: 750px) {
+    .mobile-menu-content {
+      padding: 4rem 1.5rem 2rem;
+    }
+    
+    .mobile-menu-logo {
+      font-size: 1.8rem;
+    }
+    
+    .luxury-menu-item {
+      padding: 1rem 1.5rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-height: 650px) {
+    .mobile-menu-content {
+      padding: 3rem 1.5rem 1.5rem;
+    }
+    
+    .mobile-menu-logo {
+      font-size: 1.6rem;
+    }
+    
+    .luxury-menu-item {
+      padding: 0.8rem 1.5rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-height: 550px) {
+    .mobile-menu-content {
+      padding: 2rem 1rem 1rem;
+    }
+    
+    .mobile-menu-logo {
+      font-size: 1.4rem;
+    }
+    
+    .luxury-menu-item {
+      padding: 0.6rem 1rem;
+      font-size: 1.2rem;
+      min-width: 200px;
+    }
   }
 }
