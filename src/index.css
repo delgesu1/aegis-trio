@@ -499,6 +499,10 @@
   .accent-glow {
     color: hsl(var(--gold));
     text-shadow: 0 0 80px hsl(var(--gold) / 0.4);
+    /* Ensure glow has enough space and doesn't get clipped */
+    padding: 40px 0;
+    margin: -20px 0;
+    overflow: visible;
   }
 
   /* Fade up animation */
