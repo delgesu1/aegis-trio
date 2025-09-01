@@ -65,7 +65,7 @@ const LiveSection = () => {
             >
               <div className="group">
                 {/* Premium video container */}
-                <div className="luxury-card rounded-2xl p-6 mb-8 transition-all duration-700 ease-out group-hover:shadow-2xl group-hover:shadow-gold/20 group-hover:-translate-y-2 group-hover:scale-[1.02]">
+                <div className="video-container rounded-2xl p-6 mb-8">
                   <div className="relative aspect-video rounded-xl overflow-hidden luxury-shadow">
                     <iframe
                       src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=0&iv_load_policy=3&cc_load_policy=0&disablekb=1&color=white&theme=dark&playsinline=1&widget_referrer=&origin=${window.location.origin}&title=0&byline=0&portrait=0`}
@@ -83,7 +83,7 @@ const LiveSection = () => {
                 </div>
                 
                 <div className="text-center">
-                  <h3 className="font-display text-3xl lg:text-4xl font-bold text-gold-rich mb-4 leading-tight">
+                  <h3 className="font-display text-xl lg:text-2xl font-bold text-gold-rich mb-4 leading-tight">
                     {video.title}
                   </h3>
                   <p className="font-serif text-cream/70 text-xl leading-relaxed">
