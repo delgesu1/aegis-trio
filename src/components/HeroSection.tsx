@@ -59,6 +59,11 @@ const HeroSection = () => {
         </p>
       </div>
       
+      {/* Decorative Circle Ornament - positioned below main content */}
+      <div className="absolute bottom-32 right-8 md:bottom-24 md:right-16 lg:bottom-20 lg:right-20">
+        <div className="floating-accent" style={{ animationDelay: '0.8s' }}></div>
+      </div>
+
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-elegant-float">
         <div className="flex flex-col items-center">

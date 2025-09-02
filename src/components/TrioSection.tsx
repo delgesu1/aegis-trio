@@ -50,7 +50,7 @@ const TrioSection = () => {
               </div>
               
               {/* Decorative geometric elements */}
-              <div className="absolute -top-8 -left-8 w-24 h-24 border-2 border-gold-rich rounded-full opacity-60"></div>
+              <div className="absolute -top-16 -left-16 w-24 h-24 border-2 border-gold-rich rounded-full opacity-60"></div>
               <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-gradient-to-br from-burgundy/20 to-gold/20 rounded-lg rotate-12 blur-sm"></div>
               
             </div>
