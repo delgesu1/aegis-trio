@@ -9,14 +9,14 @@ const musicians = [
     name: "Daniel Kurganov",
     instrument: "Violin",
     image: kurganovImage,
-    shortBio: "Never met a portamento he doesn't like, still plays better than AI, still competing with himself",
+    shortBio: "Never met a portamento he doesn't like, still plays better than AI",
     websiteUrl: "https://www.kurganov.org"
   },
   {
     name: "Daniel Lelchuk",
     instrument: "Cello",
     image: lelchukImage,
-    shortBio: "Will bike 150 miles and then play a concert, his podcasting voice is as deep as his cello",
+    shortBio: "Bikes 150 miles, then plays a concert—his podcast voice as deep as his cello",
     websiteUrl: "https://www.daniellelchuk.com"
   },
   {
