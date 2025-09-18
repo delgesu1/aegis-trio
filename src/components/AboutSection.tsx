@@ -104,14 +104,12 @@ const AboutSection = () => {
                 {/* Portrait overlay with info */}
                 <div className="portrait-overlay">
                   <div className="portrait-name-section">
-                    <div className="text-accent text-sm uppercase tracking-wider font-medium mb-2">
+                    <div className="text-accent text-sm uppercase tracking-wider font-medium mb-2" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>
                       {musician.instrument}
                     </div>
-                    <h3 className="display-text text-white mb-3 flex items-center gap-2">
+                    <h3 className="display-text text-white mb-3 flex items-start gap-3">
                       {musician.name}
-                      {musician.websiteUrl && (
-                        <ArrowUpRight className="w-5 h-5 arrow-glow opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110" />
-                      )}
+                      <ArrowUpRight className="w-6 h-6 arrow-glow opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110 mt-1" />
                     </h3>
                   </div>
                   <div className="portrait-bio-section">
