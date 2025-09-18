@@ -30,8 +30,26 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    const updateThemeColor = () => {
+      const latestSection = document.getElementById('latest');
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+      if (latestSection && metaTheme) {
+        const rect = latestSection.getBoundingClientRect();
+        const navHeight = 80;
+
+        // Switch when Latest section reaches the navbar
+        if (rect.top <= navHeight) {
+          metaTheme.setAttribute('content', '#2A2E26'); // Forest green
+        } else {
+          metaTheme.setAttribute('content', '#cf4d11'); // Orange
+        }
+      }
+    };
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      updateThemeColor();
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -75,7 +93,22 @@ const Navigation = () => {
         top: offsetPosition,
         behavior: 'smooth'
       });
-      
+
+      // Update theme color after navigation
+      setTimeout(() => {
+        const latestSection = document.getElementById('latest');
+        const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+        if (latestSection && metaTheme) {
+          const rect = latestSection.getBoundingClientRect();
+          if (rect.top <= navHeight) {
+            metaTheme.setAttribute('content', '#2A2E26'); // Forest green
+          } else {
+            metaTheme.setAttribute('content', '#cf4d11'); // Orange
+          }
+        }
+      }, 100); // Small delay to ensure scroll position is updated
+
       setIsMobileMenuOpen(false);
     }
   };
