@@ -769,6 +769,38 @@
     transform: translateY(calc(100% - 8rem));
   }
 
+  /* Clickable portrait cards */
+  .portrait-card.clickable {
+    cursor: pointer;
+  }
+
+  .portrait-card.clickable:hover {
+    transform: scale(1.03);
+    box-shadow:
+      0 30px 60px -12px hsl(0 0% 0% / 0.9),
+      0 0 100px hsl(var(--gold) / 0.5);
+  }
+
+  /* Arrow glow animation */
+  @keyframes arrowGlow {
+    0%, 100% {
+      filter: drop-shadow(0 0 4px hsl(var(--gold) / 0.6));
+    }
+    50% {
+      filter: drop-shadow(0 0 8px hsl(var(--gold) / 0.9));
+    }
+  }
+
+  .arrow-glow {
+    animation: arrowGlow 2s ease-in-out infinite;
+    color: hsl(var(--gold));
+  }
+
+  .portrait-card.clickable:hover .arrow-glow {
+    animation-duration: 0.8s;
+    filter: drop-shadow(0 0 12px hsl(var(--gold) / 1));
+  }
+
   /* Typography styles from aegis-trio-elegance */
   .section-title {
     font-family: 'Playfair Display', serif;

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import kurganovImage from '@/assets/kurganov-violin.png';
 import lelchukImage from '@/assets/lelchuk-cello.jpg';
 import finehouseImage from '@/assets/finehouse-piano.png';
@@ -8,19 +9,21 @@ const musicians = [
     name: "Daniel Kurganov",
     instrument: "Violin",
     image: kurganovImage,
-    shortBio: "Never met a portamento he doesn't like, still plays better than AI, still competing with himself"
+    shortBio: "Never met a portamento he doesn't like, still plays better than AI, still competing with himself",
+    websiteUrl: "https://www.kurganov.org"
   },
   {
-    name: "Daniel Lelchuk", 
+    name: "Daniel Lelchuk",
     instrument: "Cello",
     image: lelchukImage,
-    shortBio: "Will bike 150 miles and then play a concert, his podcasting voice is as deep as his cello"
+    shortBio: "Will bike 150 miles and then play a concert, his podcasting voice is as deep as his cello",
+    websiteUrl: "https://www.daniellelchuk.com"
   },
   {
     name: "Constantine Finehouse",
     instrument: "Piano", 
     image: finehouseImage,
-    shortBio: "Might be late to rehearsal but will bring the kind of pastry that fuels the musical spirit"
+    shortBio: "Find me at 4am, lost in the world of Brahms, Beethoven, and hearty soup"
   }
 ];
 
@@ -73,37 +76,53 @@ const AboutSection = () => {
         
         {/* Portrait gallery */}
         <div className="portrait-grid mb-20">
-          {musicians.map((musician, index) => (
-            <div 
-              key={musician.name} 
-              ref={el => cardRefs.current[index] = el}
-              className={`scale-in portrait-card group ${visibleCards.includes(index) ? 'animate' : ''} ${musician.name === 'Daniel Kurganov' ? 'kurganov-card' : ''}`}
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <img
-                src={musician.image}
-                alt={musician.name}
-                className="w-full h-full object-cover"
-              />
-              
-              {/* Portrait overlay with info */}
-              <div className="portrait-overlay">
-                <div className="portrait-name-section">
-                  <div className="text-accent text-sm uppercase tracking-wider font-medium mb-2">
-                    {musician.instrument}
+          {musicians.map((musician, index) => {
+            const CardWrapper = musician.websiteUrl ? 'a' : 'div';
+            const cardProps = musician.websiteUrl
+              ? {
+                  href: musician.websiteUrl,
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                  'aria-label': `Visit ${musician.name}'s website`
+                }
+              : {};
+
+            return (
+              <CardWrapper
+                key={musician.name}
+                ref={el => cardRefs.current[index] = el}
+                className={`scale-in portrait-card group ${visibleCards.includes(index) ? 'animate' : ''} ${musician.name === 'Daniel Kurganov' ? 'kurganov-card' : ''} ${musician.websiteUrl ? 'clickable' : ''}`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+                {...cardProps}
+              >
+                <img
+                  src={musician.image}
+                  alt={musician.name}
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Portrait overlay with info */}
+                <div className="portrait-overlay">
+                  <div className="portrait-name-section">
+                    <div className="text-accent text-sm uppercase tracking-wider font-medium mb-2">
+                      {musician.instrument}
+                    </div>
+                    <h3 className="display-text text-white mb-3 flex items-center gap-2">
+                      {musician.name}
+                      {musician.websiteUrl && (
+                        <ArrowUpRight className="w-5 h-5 arrow-glow opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110" />
+                      )}
+                    </h3>
                   </div>
-                  <h3 className="display-text text-white mb-3">
-                    {musician.name}
-                  </h3>
+                  <div className="portrait-bio-section">
+                    <p className="text-white/80 leading-relaxed">
+                      {musician.shortBio}
+                    </p>
+                  </div>
                 </div>
-                <div className="portrait-bio-section">
-                  <p className="text-white/80 leading-relaxed">
-                    {musician.shortBio}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+              </CardWrapper>
+            );
+          })}
         </div>
       </div>
     </section>
