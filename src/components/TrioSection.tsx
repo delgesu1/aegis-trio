@@ -62,37 +62,30 @@ const TrioSection = () => {
               {/* Decorative header */}
               <div className="mb-8">
                 <h2 className="font-display text-5xl lg:text-7xl font-bold text-burgundy-rich leading-tight">
-                  Crafting
-                  <span className="block text-gold-rich italic font-light">Musical</span>
-                  <span className="block">Excellence</span>
+                  Musical
+                  <span className="block text-gold-rich italic font-light">Lineage</span>
+                  <span className="block">Renewed</span>
                 </h2>
               </div>
               
               <div className="space-y-8 font-serif text-xl text-charcoal-light leading-relaxed">
                 <p className="text-2xl text-burgundy-light font-medium border-l-4 border-gold pl-6">
-                  Born from a shared vision in Europe's most prestigious conservatories, 
-                  Aegis Trio has evolved into a beacon of chamber music excellence.
+                  Rooted in a deep love for the European chamber music lineage, we draw inspiration from its champions while embracing its past, present, and future.
                 </p>
                 
                 <p>
-                  Our repertoire transcends traditional boundaries, weaving together the 
-                  timeless works of Brahms and Mendelssohn with contemporary masterpieces. 
-                  Each performance is an intimate journey, crafted with surgical precision 
-                  and boundless artistic passion.
+                  Our identity is shaped by centuries of ideas in dialogue: the Romantic heroism of the 1800s, the Golden Age values of the early 20th century, the flourishing of professional chamber music, and the insights of the Historical Performance movement. These currents may seem opposed, yet together they enrich our sound.
                 </p>
                 
                 <p>
-                  We believe in the transformative power of music—not merely as entertainment, 
-                  but as a profound dialogue between artist and audience, between past and present, 
-                  between the technical and the transcendent.
+                  We reject checklists and trends. What matters is the interior truth of the music: to listen without pretense, let tradition breathe freely, and give it voice in a way that feels eternal, yet vividly present.
                 </p>
                 
                 {/* Signature element */}
                 <div className="pt-8 border-t border-gold/30">
                   <p className="font-display text-burgundy italic text-lg">
-                    "Music is the universal language of the soul"
+                    “The character of the music lies within; our job is to listen honestly and set it free.”
                   </p>
-                  <p className="font-serif text-charcoal text-sm mt-2">— Aegis Trio Philosophy</p>
                 </div>
               </div>
             </div>
