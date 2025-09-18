@@ -42,7 +42,7 @@ const Navigation = () => {
         if (rect.top <= navHeight) {
           metaTheme.setAttribute('content', '#2A2E26'); // Forest green
         } else {
-          metaTheme.setAttribute('content', '#cf4d11'); // Orange
+          metaTheme.setAttribute('content', '#d64c33'); // Orange
         }
       }
     };
@@ -104,7 +104,7 @@ const Navigation = () => {
           if (rect.top <= navHeight) {
             metaTheme.setAttribute('content', '#2A2E26'); // Forest green
           } else {
-            metaTheme.setAttribute('content', '#cf4d11'); // Orange
+            metaTheme.setAttribute('content', '#d64c33'); // Orange
           }
         }
       }, 100); // Small delay to ensure scroll position is updated
