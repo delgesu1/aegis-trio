@@ -6,12 +6,12 @@ const upcomingEvents = [
   {
     date: "2025-10-19",
     displayDate: "October 19, 2025",
-    time: "2:30 PM",
+    time: "11:00 AM",
     venue: "Amherst College",
     location: "Amherst, MA",
     program: "Rachmaninoff Trio élégiaque No. 2",
-    description: "Memorial Concert at Amherst College",
-    ticketsUrl: "#"
+    description: "Memorial Concert for Boris Wolfson at Amherst College",
+    ticketsUrl: "https://www.amherst.edu/academiclife/departments/russian/acrc/events/node/932837"
   }
 ];
 
@@ -144,7 +144,7 @@ const LatestSection = () => {
                         onClick={() => window.open(event.ticketsUrl, '_blank')}
                       >
                         <ExternalLink className="w-5 h-5 mr-3 drop-shadow-sm" />
-                        Reserve Seats
+                        More Info
                       </Button>
                       
                       <div className="mt-6 space-y-2">

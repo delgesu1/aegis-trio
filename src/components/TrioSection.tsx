@@ -62,7 +62,7 @@ const TrioSection = () => {
               {/* Decorative header */}
               <div className="mb-8">
                 <h2 className="font-display text-5xl lg:text-7xl font-bold text-burgundy-rich leading-tight">
-                  Musical
+                  Music
                   <span className="block text-gold-rich italic font-light">Lineage</span>
                   <span className="block">Renewed</span>
                 </h2>

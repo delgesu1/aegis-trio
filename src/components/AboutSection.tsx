@@ -8,19 +8,19 @@ const musicians = [
     name: "Daniel Kurganov",
     instrument: "Violin",
     image: kurganovImage,
-    shortBio: "A master of lyrical expression, Daniel brings profound musical sensitivity to every performance."
+    shortBio: "Never met a portamento he doesn't like, still plays better than AI, still competing with himself"
   },
   {
     name: "Daniel Lelchuk", 
     instrument: "Cello",
     image: lelchukImage,
-    shortBio: "With his rich, resonant tone and impeccable musical instincts, Daniel anchors the trio with both power and grace."
+    shortBio: "Will bike 150 miles and then play a concert, his podcasting voice is as deep as his cello"
   },
   {
     name: "Constantine Finehouse",
     instrument: "Piano", 
     image: finehouseImage,
-    shortBio: "A pianist of extraordinary versatility, Constantine seamlessly weaves between accompaniment and solo voice."
+    shortBio: "Might be late to rehearsal but will bring the kind of pastry that fuels the musical spirit"
   }
 ];
 
@@ -67,7 +67,7 @@ const AboutSection = () => {
             <span className="accent-glow italic">Artists</span>
           </h2>
           <p className="display-text text-muted-foreground font-light max-w-2xl">
-            Three exceptional musicians united by their commitment to artistic transcendence
+            We carry old souls, we listen with new ears, we play as one.
           </p>
         </div>
         
