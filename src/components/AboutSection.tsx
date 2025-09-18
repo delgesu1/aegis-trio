@@ -21,9 +21,10 @@ const musicians = [
   },
   {
     name: "Constantine Finehouse",
-    instrument: "Piano", 
+    instrument: "Piano",
     image: finehouseImage,
-    shortBio: "Find me at 4am, lost in the world of Brahms, Beethoven, and hearty soup"
+    shortBio: "Find me at 4am, lost in the world of Brahms, Beethoven, and hearty soup",
+    websiteUrl: "https://www.naxos.com/Bio/Person/Constantine_Finehouse/302581"
   }
 ];
 

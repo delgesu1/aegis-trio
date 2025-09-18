@@ -801,6 +801,18 @@
     filter: drop-shadow(0 0 12px hsl(var(--gold) / 1));
   }
 
+  /* Always show bio on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .portrait-overlay {
+      transform: translateY(0) !important;
+    }
+
+    /* Also ensure Kurganov's special positioning is overridden */
+    .kurganov-card .portrait-overlay {
+      transform: translateY(0) !important;
+    }
+  }
+
   /* Typography styles from aegis-trio-elegance */
   .section-title {
     font-family: 'Playfair Display', serif;
