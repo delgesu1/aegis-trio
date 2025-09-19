@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 import flowerImage from '../assets/Flower58.png';
 
@@ -28,6 +28,7 @@ const navigationItems = [
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const scrollPositionRef = useRef(0);
 
   useEffect(() => {
     const updateThemeColor = () => {
@@ -58,37 +59,61 @@ const Navigation = () => {
 
   // Handle body scroll lock when menu is open
   useEffect(() => {
+    const body = document.body;
+    const docEl = document.documentElement;
+
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-      document.body.style.height = '100%';
-      document.documentElement.style.overflow = 'hidden';
+      scrollPositionRef.current = window.scrollY; // Preserve current scroll position while body is fixed
+
+      body.style.overflow = 'hidden';
+      body.style.position = 'fixed';
+      body.style.width = '100%';
+      body.style.height = '100%';
+      body.style.top = `-${scrollPositionRef.current}px`;
+      body.style.left = '0';
+      body.style.right = '0';
+
+      docEl.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-      document.body.style.height = '';
-      document.documentElement.style.overflow = '';
+      body.style.overflow = '';
+      body.style.position = '';
+      body.style.width = '';
+      body.style.height = '';
+      body.style.top = '';
+      body.style.left = '';
+      body.style.right = '';
+
+      docEl.style.overflow = '';
+
+      window.scrollTo({
+        top: scrollPositionRef.current,
+      });
     }
 
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-      document.body.style.height = '';
-      document.documentElement.style.overflow = '';
+      body.style.overflow = '';
+      body.style.position = '';
+      body.style.width = '';
+      body.style.height = '';
+      body.style.top = '';
+      body.style.left = '';
+      body.style.right = '';
+      docEl.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
-    if (element) {
-      // Calculate offset for fixed navigation
-      const navHeight = 80; // Height of fixed navigation
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navHeight;
+    if (!element) {
+      return;
+    }
 
+    const navHeight = 80; // Height of fixed navigation
+    const currentScrollY = isMobileMenuOpen ? scrollPositionRef.current : window.pageYOffset;
+    const elementPosition = element.getBoundingClientRect().top + currentScrollY;
+    const offsetPosition = elementPosition - navHeight;
+
+    const performScroll = () => {
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
@@ -108,8 +133,13 @@ const Navigation = () => {
           }
         }
       }, 100); // Small delay to ensure scroll position is updated
+    };
 
+    if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
+      setTimeout(performScroll, 50); // Allow scroll lock reset before smooth scrolling
+    } else {
+      performScroll();
     }
   };
 
